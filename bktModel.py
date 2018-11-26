@@ -57,7 +57,7 @@ for student in students:
             data.iat[index, 11+i] = (0,1)[pC>threshold]
 
 #creating a new CSV file with necessary data
-# data.to_csv('output.csv', index=False)
+data.to_csv('output.csv', index=False)
 cols = data.columns.values.tolist()
 cols = data.columns.values.tolist()
 accuracy = []
