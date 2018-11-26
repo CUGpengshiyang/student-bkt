@@ -1,8 +1,7 @@
 # Instructions to run the program:
 # 1. Make sure the CSV file is in the same folder as the program file
 # 2. Certain assumptions have been made regarding the positions of the columns. Do not use a different file with different colum structure.
-# 3. Second Visualization is generated after closing the first graph window
-# 4. A new CSV file is generated after the program is executed with the new columns in the same folder as the program file 
+# 3. A new CSV file is generated after the program is executed with the new columns in the same folder as the program file 
 
 import pandas as pd
 import numpy as np
