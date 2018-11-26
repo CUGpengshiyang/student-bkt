@@ -73,6 +73,6 @@ for i in range(7):
 plt.plot(cols[3:10], accuracy, label=str(correctTotal/totalTotal))
 plt.xlabel('Knowledge Components')
 plt.ylabel('Accuracy')
-plt.ylim(ymax=0.93, ymin=0.84)
+plt.ylim(ymax=1.0, ymin=0.8)
 plt.legend()
 plt.show()
