@@ -8,10 +8,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 x=[]
 y=[]
-# Data is read from file
+# Data is read from file    #导入数据
 data = pd.read_csv('AssignmentData.csv')
 
-# Appending pC column and pKC for each KC and initializing them with value -1
+# Appending pC column and pKC for each KC and initializing them with value -1   #为每个KC附加pC列和pKC，并使用值-1初始化它们
 temp = pd.DataFrame(np.zeros(((len(data)))), columns=['pC'])
 data = data.join(temp)
 temp = np.empty(((len(data)), 7))
