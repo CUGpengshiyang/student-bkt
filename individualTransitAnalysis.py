@@ -54,14 +54,14 @@ for pTransit in np.arange(0.1, 0.8, 0.1):
         totalTotal += total 
         accuracy.append(correct/total)
 
-    plt.plot(cols[3:10], accuracy, label=str(pTransit))
-    plt.xlabel('Knowledge Components')
-    plt.ylabel('Accuracy')
+    plt.plot(cols[3:10], accuracy, label=str(pTransit))     # 标签为转移概率
+    plt.xlabel('Knowledge Components')                      # x为知识成分
+    plt.ylabel('Accuracy')                                  # y为精度
     plt.ylim(ymax=0.93, ymin=0.84)
     plt.legend()
 
     x.append(str(pTransit))
-    y.append(correctTotal/totalTotal)
+    y.append(correctTotal/totalTotal)                       # 总的正确率/总数量
 
 #Visualize the accuracy w.r.t different pTransit values     # 可视化精度在不同的pTransit下
 plt.show()
