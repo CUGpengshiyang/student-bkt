@@ -16,7 +16,7 @@ pSlip = 0.1
 pGuess = 0.1
 threshold = 0.6
 
-#Calculating accuracy for each value of pTransit and incrementing it
+#Calculating accuracy for each value of pTransit and incrementing it    # 计算pTransit每个值的精度并递增
 for pTransit in np.arange(0.1, 0.8, 0.1):
     students = data.Student.unique()
     for student in students:
@@ -63,7 +63,7 @@ for pTransit in np.arange(0.1, 0.8, 0.1):
     x.append(str(pTransit))
     y.append(correctTotal/totalTotal)
 
-#Visualize the accuracy w.r.t different pTransit values
+#Visualize the accuracy w.r.t different pTransit values     # 可视化精度在不同的pTransit下
 plt.show()
 
 plt.plot(x, y)
