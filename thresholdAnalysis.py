@@ -16,21 +16,21 @@ pSlip = 0.1
 pGuess = 0.1
 threshold = 0.6
 
-#Calculating accuracy for each value of Threshold and incrementing it
-for threshold in np.arange(0.3, 0.8, 0.1):
+#Calculating accuracy for each value of Threshold and incrementing it       # 计算每个阈值的精确度并递增
+for threshold in np.arange(0.3, 0.8, 0.1):                                  # 阈值的取值范围
     students = data.Student.unique()
     for student in students:
         pLNext = pInit
         studentData = data[data.Student==student]
         kc = []
-        kc.append(studentData.loc[studentData.KC_1==1])
+        kc.append(studentData.loc[studentData.KC_1==1])                     # 添加知识成分的行，用0和1表示，一行7个
         kc.append(studentData.loc[studentData.KC_27==1])
         kc.append(studentData.loc[studentData.KC_24==1])
         kc.append(studentData.loc[studentData.KC_14==1])
         kc.append(studentData.loc[studentData.KC_22==1])
         kc.append(studentData.loc[studentData.KC_20==1])
         kc.append(studentData.loc[studentData.KC_21==1])
-        for i in range(len(kc)):
+        for i in range(len(kc)):                                            # 主要的计算过程
             pLNext = pInit
             for index, row in kc[i].iterrows():
                 if(row.Correct==1):
@@ -42,7 +42,7 @@ for threshold in np.arange(0.3, 0.8, 0.1):
                 pC = (pLNext*(1-pSlip))+((1-pLNext)*pGuess)
                 data.iat[index, 10] = pC
                 data.iat[index, 11+i] = (0,1)[pC>threshold]
-    # data.to_csv('output.csv', index=False)
+    # data.to_csv('output.csv', index=False)                              # 输出 csv
     cols = data.columns.values.tolist()
     accuracy = []
     correctTotal=0
@@ -54,7 +54,7 @@ for threshold in np.arange(0.3, 0.8, 0.1):
         totalTotal += total 
         accuracy.append(correct/total)
 
-    plt.plot(cols[3:10], accuracy, label=str(threshold))
+    plt.plot(cols[3:10], accuracy, label=str(threshold))                 # 标签为阈值
     plt.xlabel('Knowledge Components')
     plt.ylabel('Accuracy')
     plt.ylim(ymax=0.92, ymin=0.84)
