@@ -17,13 +17,13 @@ pGuess = 0.1
 threshold = 0.6
 
 #Calculating accuracy for each value of pTransit and incrementing it    # 计算pTransit每个值的精度并递增
-for pTransit in np.arange(0.1, 0.8, 0.1):
+for pTransit in np.arange(0.1, 0.8, 0.1):       # 进行循环
     students = data.Student.unique()
     for student in students:
         pLNext = pInit
         studentData = data[data.Student==student]
         kc = []
-        kc.append(studentData.loc[studentData.KC_1==1])
+        kc.append(studentData.loc[studentData.KC_1==1])     # 添加知识成分的行的数据
         kc.append(studentData.loc[studentData.KC_27==1])
         kc.append(studentData.loc[studentData.KC_24==1])
         kc.append(studentData.loc[studentData.KC_14==1])
@@ -42,7 +42,7 @@ for pTransit in np.arange(0.1, 0.8, 0.1):
                 pC = (pLNext*(1-pSlip))+((1-pLNext)*pGuess)
                 data.iat[index, 10] = pC
                 data.iat[index, 11+i] = (0,1)[pC>threshold]
-    # data.to_csv('output.csv', index=False)
+    # data.to_csv('output.csv', index=False)        # 新建csv
     cols = data.columns.values.tolist()
     accuracy = []
     correctTotal=0
